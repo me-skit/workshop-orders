@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-8">
+      <div class="col-md-10 col-lg-8">
         <div class="card">
           <div class="card-header">
             <span class="fw-bold"><i class="fas fa-map-marked"></i> {{ __('Agregar Cliente') }}</span>
@@ -13,8 +13,8 @@
               @csrf
 
               <div class="form-group row mb-3">
-                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nombre') }}<span class="text-danger">*</span></label>
-                <div class="col-md-6">
+                <label for="name" class="col-md-3 col-form-label text-md-end">{{ __('Nombre') }}<span class="text-danger">*</span></label>
+                <div class="col-md-7">
                   <input type="text"
                     name="name"
                     id="name"
@@ -33,8 +33,8 @@
               </div>
 
               <div class="form-group row mb-3">
-                <label for="phone_number" class="col-md-4 col-form-label text-md-end">{{ __('Teléfono') }}</label>
-                <div class="col-md-6">
+                <label for="phone_number" class="col-md-3 col-form-label text-md-end">{{ __('Teléfono') }}</label>
+                <div class="col-md-7">
                   <input type="text"
                     name="phone_number"
                     id="phone_number"
