@@ -36,7 +36,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -47,7 +47,14 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            'phone_number' => 'nullable'
+        ]);
+
+        Client::create($data);
+
+        return redirect('/clients');
     }
 
     /**
