@@ -6,7 +6,7 @@
       <div class="col-md-10 col-lg-8">
         <div class="card">
           <div class="card-header">
-            <span class="fw-bold"><i class="fas fa-map-marked"></i> {{ __('Agregar Cliente') }}</span>
+            <span class="fw-bold"><i class="fas fa-map-marked"></i> {{ __('Datos de Nuevo Cliente') }}</span>
           </div>
           <div class="card-body">
             <form action="{{ route('clients.store') }}" method="POST">
@@ -40,8 +40,7 @@
                     id="phone_number"
                     class="form-control @error('phone_number') is-invalid @enderror"
                     value="{{ old('phone_number') }}"
-                    placeholder="Número de teléfono"
-                    autofocus>
+                    placeholder="Número de teléfono">
 
                   @error('phone_number')
                     <span class="invalid-feedback" role="alert">

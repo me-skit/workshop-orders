@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-md-10">
+      <div class="col-md-10 table-responsive">
         <table class="table table-hover table-sm">
           <thead>
               <tr>

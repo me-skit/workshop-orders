@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PriceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +29,8 @@ Auth::routes();
 
 Route::resource('orders', OrderController::class)->except([
     'destroy'
+]);
+
+Route::resource('clients', ClientController::class)->except([
+    'destroy', 'view'
 ]);

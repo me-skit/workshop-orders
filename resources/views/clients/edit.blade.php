@@ -6,7 +6,7 @@
       <div class="col-md-10 col-lg-8">
         <div class="card">
           <div class="card-header">
-            <span class="fw-bold">{{ __('Editar Datos de Cliente') }}</span>
+            <span class="fw-bold">{{ __('Modificar Datos de Cliente') }}</span>
           </div>
           <div class="card-body">
             <form action="{{ route('clients.update', $client->id) }}" method="POST">
@@ -41,8 +41,7 @@
                     id="phone_number"
                     class="form-control @error('phone_number') is-invalid @enderror"
                     value="{{ old('phone_number') ?? $client->phone_number }}"
-                    placeholder="Número de teléfono"
-                    autofocus>
+                    placeholder="Número de teléfono">
 
                   @error('phone_number')
                     <span class="invalid-feedback" role="alert">
