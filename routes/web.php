@@ -3,7 +3,6 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PriceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +31,9 @@ Route::resource('orders', OrderController::class)->except([
 ]);
 
 Route::resource('clients', ClientController::class)->except([
+    'destroy', 'view'
+]);
+
+Route::resource('items', ItemController::class)->except([
     'destroy', 'view'
 ]);
