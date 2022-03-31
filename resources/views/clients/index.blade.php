@@ -17,7 +17,7 @@
               <tr>
                   <th class="text-center">#</th>
                   <th>Nombre</th>
-                  <th>Teléfono</th>
+                  <th>Teléfono(s)</th>
                   <th>Acciones</th>
               </tr>
           </thead>

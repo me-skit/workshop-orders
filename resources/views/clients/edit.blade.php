@@ -6,11 +6,12 @@
       <div class="col-md-10 col-lg-8">
         <div class="card">
           <div class="card-header">
-            <span class="fw-bold"><i class="fas fa-map-marked"></i> {{ __('Agregar Cliente') }}</span>
+            <span class="fw-bold">{{ __('Editar Datos de Cliente') }}</span>
           </div>
           <div class="card-body">
-            <form action="{{ route('clients.store') }}" method="POST">
+            <form action="{{ route('clients.update', $client->id) }}" method="POST">
               @csrf
+              @method('PATCH')
 
               <div class="form-group row mb-3">
                 <label for="name" class="col-md-3 col-form-label text-md-end">{{ __('Nombre') }}<span class="text-danger">*</span></label>
@@ -19,7 +20,7 @@
                     name="name"
                     id="name"
                     class="form-control @error('name') is-invalid @enderror"
-                    value="{{ old('name') }}"
+                    value="{{ old('name') ?? $client->name }}"
                     placeholder="Nombre del cliente"
                     required
                     autofocus>
@@ -39,7 +40,7 @@
                     name="phone_number"
                     id="phone_number"
                     class="form-control @error('phone_number') is-invalid @enderror"
-                    value="{{ old('phone_number') }}"
+                    value="{{ old('phone_number') ?? $client->phone_number }}"
                     placeholder="Número de teléfono"
                     autofocus>
 
@@ -53,8 +54,8 @@
 
               <div class="row">
                 <div class="col-md-10 text-end">
-                  <a href="{{ route('clients.index') }}" class="btn btn-secondary me-1">{{  __('Cancelar') }}</a>
-                  <button type="submit" class="btn btn-primary">{{ __('Agregar') }}</button>
+                  <a href="{{ route('clients.index') }}" class="btn btn-secondary me-1">{{ __('Cancelar') }}</a>
+                  <button type="submit" class="btn btn-primary">{{ __('Guardar')}}</button>
                 </div>
               </div>
             </form>

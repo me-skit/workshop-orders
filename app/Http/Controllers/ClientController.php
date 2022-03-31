@@ -58,17 +58,6 @@ class ClientController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Client $client)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Client  $client
@@ -76,7 +65,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('clients.edit', compact('client'));
     }
 
     /**
@@ -88,17 +77,14 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
-    }
+        $data = $request->validate([
+            'name' => 'required',
+            'phone_number' => 'nullable'
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Client $client)
-    {
-        //
+        $client->fill($data);
+        $client->save();
+
+        return redirect('/clients');
     }
 }
