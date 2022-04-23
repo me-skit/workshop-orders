@@ -16,6 +16,8 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id')->constrained();
+            $table->float('total')->default(0);
+            $table->boolean('finished')->default(false);
             $table->string('car_description');
             $table->timestamps();
         });
