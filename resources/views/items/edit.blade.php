@@ -40,7 +40,7 @@
                     name="cost"
                     id="cost"
                     class="form-control @error('cost') is-invalid @enderror"
-                    value="{{ old('cost') ?? $current_price->cost }}"
+                    value="{{ old('cost') ?? $latest_price->cost }}"
                     placeholder="Costo">
 
                   @error('cost')
@@ -52,17 +52,17 @@
               </div>
 
               <div class="form-group row mb-3">
-                <label for="price" class="col-md-3 col-form-label text-md-end">{{ __('Precio') }}<span class="text-danger">*</span></label>
+                <label for="sell_price" class="col-md-3 col-form-label text-md-end">{{ __('Precio') }}<span class="text-danger">*</span></label>
                 <div class="col-md-7">
                   <input type="text"
-                    name="price"
-                    id="price"
-                    class="form-control @error('price') is-invalid @enderror"
-                    value="{{ old('price') ?? $current_price->price }}"
+                    name="sell_price"
+                    id="sell_price"
+                    class="form-control @error('sell_price') is-invalid @enderror"
+                    value="{{ old('sell_price') ?? $latest_price->sell_price }}"
                     placeholder="Precio"
                     required>
 
-                  @error('price')
+                  @error('sell_price')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>

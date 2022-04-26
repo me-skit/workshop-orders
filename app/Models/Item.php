@@ -16,8 +16,8 @@ class Item extends Model
         return $this->hasMany(Price::class);
     }
 
-    public function current_price()
+    public function latestPrice()
     {
-        return $this->hasOne(Price::class)->latest();
+        return $this->hasOne(Price::class)->latestOfMany();
     }
 }

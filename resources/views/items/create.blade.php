@@ -51,17 +51,17 @@
               </div>
 
               <div class="form-group row mb-3">
-                <label for="price" class="col-md-3 col-form-label text-md-end">{{ __('Precio') }}<span class="text-danger">*</span></label>
+                <label for="sell_price" class="col-md-3 col-form-label text-md-end">{{ __('Precio') }}<span class="text-danger">*</span></label>
                 <div class="col-md-7">
                   <input type="text"
-                    name="price"
-                    id="price"
-                    class="form-control @error('price') is-invalid @enderror"
-                    value="{{ old('price') }}"
+                    name="sell_price"
+                    id="sell_price"
+                    class="form-control @error('sell_price') is-invalid @enderror"
+                    value="{{ old('sell_price') }}"
                     placeholder="Precio"
                     required>
 
-                  @error('price')
+                  @error('sell_price')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
@@ -72,7 +72,7 @@
               <div class="row">
                 <div class="col-md-10 text-end">
                   <a href="{{ route('items.index') }}" class="btn btn-secondary me-1">{{  __('Cancelar') }}</a>
-                  <button type="submit" class="btn btn-primary">{{ __('Agregar') }}</button>
+                  <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
                 </div>
               </div>
             </form>

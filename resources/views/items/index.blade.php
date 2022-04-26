@@ -6,7 +6,7 @@
       <div class="col-md-10 d-flex justify-content-between align-items-baseline">
         <h2>Repuestos & Servicios</h2>
         <div>
-          <a href="{{ route('items.create') }}" class="btn btn-outline-success"><i class="fas fa-plus"></i> Nuevo</a>
+          <a href="{{ route('items.create') }}" class="btn btn-success"><i class="fas fa-plus"></i> Nuevo</a>
         </div>
       </div>
     </div>
@@ -17,9 +17,9 @@
               <tr>
                   <th class="text-center">#</th>
                   <th>Descripción</th>
-                  <th>Costo</th>
-                  <th>Precio</th>
-                  <th>Acciones</th>
+                  <th class="text-center">Costo</th>
+                  <th class="text-center">Precio</th>
+                  <th class="text-center">Acciones</th>
               </tr>
           </thead>
           <tbody>
@@ -27,11 +27,11 @@
               <tr>
                 <td class="align-middle text-center">{{ ($items->currentPage() - 1) * 10 + $key + 1 }}</td>
                 <td class="align-middle">{{ $item->description }}</td>
-                <td class="align-middle">{{ $item->current_price->cost_currency_format  }}</td>
-                <td class="align-middle">{{ $item->current_price->price_currency_format }}</td>
-                <td class="align-middle">
-                  <a href="{{ route('items.edit', $item->id ) }}" class="btn btn-outline-primary btn-sm">Modificar</a>
-                  <a href="{{ route('items.edit', $item->id ) . '?action=update' }}" class="btn btn-outline-dark btn-sm">Actualizar Precio</a>
+                <td class="align-middle text-end">{{ $item->latestPrice->cost_currency_format  }}</td>
+                <td class="align-middle text-end">{{ $item->latestPrice->price_currency_format }}</td>
+                <td class="align-middle text-center">
+                  <a href="{{ route('items.edit', $item->id ) }}" class="btn btn-primary btn-sm">Modificar</a>
+                  <a href="{{ route('items.edit', $item->id ) . '?action=update' }}" class="btn btn-danger btn-sm">Nuevo Precio</a>
                 </td>
               </tr>
             @endforeach

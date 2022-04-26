@@ -54,7 +54,7 @@ class ItemController extends Controller
 
         $data_price = $request->validate([
             'cost' => ['nullable', 'regex:/^\d+(\.\d{1,})?$/'],
-            'price' => ['required', 'regex:/^\d+(\.\d{1,})?$/']
+            'sell_price' => ['required', 'regex:/^\d+(\.\d{1,})?$/']
         ]);
 
         $item = Item::create($data_item);
@@ -73,9 +73,9 @@ class ItemController extends Controller
      */
     public function edit(Request $request, Item $item)
     {
-        $current_price = $item->current_price;
+        $latest_price = $item->latestPrice;
         $action = $request->get('action') ? $request->get('action') : null;
-        return view('items.edit', compact('item', 'current_price', 'action'));
+        return view('items.edit', compact('item', 'latest_price', 'action'));
     }
 
     /**
@@ -93,34 +93,22 @@ class ItemController extends Controller
 
         $data_price = $request->validate([
             'cost' => ['nullable', 'regex:/^\d+(\.\d{1,})?$/'],
-            'price' => ['required', 'regex:/^\d+(\.\d{1,})?$/']
+            'sell_price' => ['required', 'regex:/^\d+(\.\d{1,})?$/']
         ]);
 
         $item->fill($data_item);
         $item->save();
 
-        $current_price = $item->current_price;
-        if ($request->get('action'))
+        $latest_price = $item->latestPrice;
+        if ($request->get('action') and $latest_price->sell_price != $data_price['sell_price'])
         {
-            if ($current_price->cost != $data_price['cost'] or $current_price->price != $data_price['price'])
-            {
-                if ($current_price->price != $data_price['price'])
-                {
-                    $data_price['item_id'] = $item->id;
-                    Price::create($data_price);    
-                }
-                else 
-                {
-                    $current_price->fill($data_price);
-                    $current_price->save();
-                }
-            }
+            $data_price['item_id'] = $item->id;
+            Price::create($data_price);
+            return redirect('/items');
         }
-        else
-        {
-            $current_price->fill($data_price);
-            $current_price->save();
-        }
+
+        $latest_price->fill($data_price);
+        $latest_price->save();
 
         return redirect('/items');
     }
