@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Item;
 use App\Models\Order;
-use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -32,5 +31,43 @@ class OrderController extends Controller
                     ->paginate(10);
 
         return view('orders.index', compact('orders'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $clients = Client::all();
+
+        $last_order = Order::latest()->first();
+        $order_number = $last_order ? $last_order->id + 1 : 1;
+
+        $items_list = Item::with('latestPrice')->get();
+
+        return view('orders.create', compact('clients', 'order_number', 'items_list'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $order_data = $request->validate([
+            'client_id' => 'required',
+            'car_description' => 'required'
+        ]);
+
+        $order = Order::create($order_data);
+
+        $items_order = $request->input('items_order');
+        $order->items()->sync($items_order);
+
+        return redirect('/orders');
     }
 }
