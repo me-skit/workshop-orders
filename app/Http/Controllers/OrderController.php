@@ -70,4 +70,15 @@ class OrderController extends Controller
 
         return redirect('/orders');
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Order $order)
+    {
+        return view('orders.show', compact('order'));
+    }
 }
