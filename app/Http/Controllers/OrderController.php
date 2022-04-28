@@ -81,4 +81,42 @@ class OrderController extends Controller
     {
         return view('orders.show', compact('order'));
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Order $order)
+    {
+        $clients = Client::all();
+
+        $items_list = Item::with('latestPrice')->get();
+
+        return view('orders.edit', compact('order', 'clients', 'items_list'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Order $order)
+    {
+        $order_data = $request->validate([
+            'client_id' => 'required',
+            'car_description' => 'required'
+        ]);
+
+        $order->fill($order_data);
+        $order->save();
+
+        $items_order = $request->input('items_order');
+        $order->items()->sync($items_order);
+
+        return redirect('/orders');
+    }
 }

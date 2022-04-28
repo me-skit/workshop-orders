@@ -18,7 +18,7 @@ class CreateItemOrderTable extends Migration
             $table->foreignId('order_id')->constrained();
             $table->foreignId('item_id')->constrained();
             $table->foreignId('price_id')->constrained();
-            $table->tinyInteger('quantity');
+            $table->smallInteger('quantity');
         });
     }
 
