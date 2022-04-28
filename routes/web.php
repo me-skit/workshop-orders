@@ -31,9 +31,9 @@ Route::resource('orders', OrderController::class)->except([
 ]);
 
 Route::resource('clients', ClientController::class)->except([
-    'destroy', 'view'
+    'destroy', 'show'
 ]);
 
 Route::resource('items', ItemController::class)->except([
-    'destroy', 'view'
+    'destroy', 'show'
 ]);
