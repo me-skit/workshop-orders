@@ -2,9 +2,9 @@
   <div class="col-md-12 col-lg-11">
     <div class="card mb-3">
       <div class="card-header">
-        <span class="fw-bold"><i class="fas fa-map-marked"></i> Detalles</span>
+        <span class="fw-bold">Detalles</span>
         <button type="button" class="btn btn-success btn-sm float-end" id="btn-add-item">
-          Agregar
+          <i class="far fa-plus"></i> Agregar
         </button>
       </div>
       <div class="card-body">
@@ -46,7 +46,7 @@
                     <td class="align-middle text-end col-sm-1 col-md-2">{{ number_format($item->sell_price, 2, '.', ',') }}</td>
                     <td class="align-middle text-end col-sm-1 col-md-2">{{ number_format($item->quantity * $item->sell_price, 2, '.', ',') }}</td>
                     <td class="align-middle text-center">
-                      <button type="button" class="btn btn-danger btn-sm del-button">Borrar</button>
+                      <button type="button" class="btn btn-danger btn-sm del-button"><i class="far fa-trash-alt"></i><span class="d-none d-md-inline"> Borrar</span></button>
                     </td>
                   </tr>
                 @endforeach

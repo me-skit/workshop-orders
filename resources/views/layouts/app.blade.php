@@ -10,13 +10,14 @@
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
   <!-- Fonts -->
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
   <div id="app">
+    @auth
     <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -29,16 +30,17 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
-
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ route('orders.index') }}">Ordenes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('clients.index') }}">Clientes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('items.index') }}">Artículos & Servicios</a>
-              </li>
+              @auth
+                <li class="nav-item">
+                  <a class="nav-link menu-item" href="{{ route('orders.index') }}"><i class="far fa-clipboard-list"></i> Ordenes</a>
+                </li>
+                <li class="nav-item menu-item">
+                  <a class="nav-link" href="{{ route('clients.index') }}"><i class="far fa-user-friends"></i> Clientes</a>
+                </li>
+                <li class="nav-item menu-item">
+                  <a class="nav-link" href="{{ route('items.index') }}"><i class="far fa-tools"></i> Artículos & Servicios</a>
+                </li>    
+              @endauth
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -47,26 +49,20 @@
               @guest
                 @if (Route::has('login'))
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                  </li>
-                @endif
-
-                @if (Route::has('register'))
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Ingreso') }}</a>
                   </li>
                 @endif
               @else
                 <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
+                    <i class="fas fa-user-circle"></i> {{ Auth::user()->name }}
                   </a>
 
                   <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
+                      <i class="far fa-sign-out-alt"></i> Salir
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -79,6 +75,8 @@
         </div>
       </div>
     </nav>
+    @endauth
+
 
     <main class="py-4">
       @yield('content')

@@ -8,7 +8,7 @@
 
       <div class="row justify-content-center mb-md-2">
         <div class="col-md-12 col-lg-11">
-          <h2><i class="fas fa-map-marked-alt"></i> Editar Orden de Trabajo</h2>
+          <h2><i class="far fa-clipboard-list"></i> Editar Orden<span class="d-none d-md-inline"> de Trabajo</span></h2>
         </div>
       </div>
 
@@ -16,7 +16,7 @@
         <div class="col-md-12 col-lg-11">
           <div class="card mb-3">
             <div class="card-header">
-              <span class="fw-bold card-title"><i class="fas fa-map-marked"></i> Datos Generales</span>
+              <span class="fw-bold card-title">Datos Generales</span>
             </div>
             <div class="card-body">
               <div class="row">
@@ -105,8 +105,8 @@
 
       <div class="row justify-content-center">
         <div class="col-md-12 col-lg-11 text-end">
-          <a href="{{ route('orders.index') }}" class="btn btn-secondary me-1">{{  __('Cancelar') }}</a>
-          <button type="submit" id="btn-submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+          <a href="{{ route('orders.index') }}" class="btn btn-secondary me-1"><i class="fas fa-arrow-circle-left"></i> {{  __('Cancelar') }}</a>
+          <button type="submit" id="btn-submit" class="btn btn-primary"><i class="fas fa-save"></i> {{ __('Guardar') }}</button>
         </div>
       </div>
 

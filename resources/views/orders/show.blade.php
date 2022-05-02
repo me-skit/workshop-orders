@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row justify-content-center mb-md-2">
       <div class="col-md-12 col-lg-11">
-        <h2><i class="fas fa-map-marked-alt"></i> Orden de Trabajo</h2>
+        <h2><i class="far fa-clipboard-list-check"></i> Orden de Trabajo</h2>
       </div>
     </div>
 
@@ -12,7 +12,7 @@
       <div class="col-md-12 col-lg-11">
         <div class="card mb-3">
           <div class="card-header">
-            <span class="fw-bold card-title"><i class="fas fa-map-marked"></i> Datos Generales</span>
+            <span class="fw-bold card-title">Datos Generales</span>
           </div>
           <div class="card-body">
             <div class="row">
@@ -87,7 +87,7 @@
       <div class="col-md-12 col-lg-11">
         <div class="card mb-3">
           <div class="card-header">
-            <span class="fw-bold"><i class="fas fa-map-marked"></i> Detalles</span>
+            <span class="fw-bold">Detalles</span>
           </div>
           <div class="card-body">
             <div class="row">
@@ -95,20 +95,20 @@
                 <table class="table table-hover table-sm" id="items-table">
                   <thead>
                     <tr>
-                      <td class="col-sm-2 col-md-1">Cant.</td>
-                      <td class="col-sm-7 col-md-5">Descripcion</td>
-                      <td class="text-center col-sm-1 col-md-2">P/U (Q)</td>
-                      <td class="text-center col-sm-1 col-md-2">Subtotal (Q)</td>
+                      <td>Cant.</td>
+                      <td>Descripcion</td>
+                      <td class="text-center">P/U (Q)</td>
+                      <td class="text-center">Subtotal (Q)</td>
                       <td></td>
                     </tr>
                   </thead>
                   <tbody id="body-table">
                     @foreach ($order->items_order as $item)
                       <tr>
-                        <td class="col-sm-2 col-md-1">{{ $item->quantity }}</td>
-                        <td class="col-sm-7 col-md-5">{{ $item->description }}</td>
-                        <td class="text-end col-sm-1 col-md-2">{{ number_format($item->sell_price, 2, '.', ',') }}</td>
-                        <td class="text-end col-sm-1 col-md-2">{{ number_format($item->quantity * $item->sell_price, 2, '.', ',') }}</td>
+                        <td class="text-center align-middle">{{ $item->quantity }}</td>
+                        <td>{{ $item->description }}</td>
+                        <td class="text-end align-middle">{{ number_format($item->sell_price, 2, '.', ',') }}</td>
+                        <td class="text-end align-middle">{{ number_format($item->quantity * $item->sell_price, 2, '.', ',') }}</td>
                         <td></td>                       
                       </tr>
                     @endforeach
@@ -131,7 +131,7 @@
 
     <div class="row justify-content-center">
       <div class="col-md-12 col-lg-11 text-end">
-        <a href="{{ route('orders.index') }}" class="btn btn-secondary me-1">{{  __('Regresar') }}</a>
+        <a href="{{ route('orders.index') }}" class="btn btn-secondary me-1"><i class="far fa-arrow-circle-left"></i> {{  __('Regresar') }}</a>
       </div>
     </div>
   </div>

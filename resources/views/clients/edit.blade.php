@@ -6,7 +6,7 @@
       <div class="col-md-10 col-lg-8">
         <div class="card">
           <div class="card-header">
-            <span class="fw-bold">{{ __('Modificar Datos de Cliente') }}</span>
+            <span class="fw-bold"><i class="far fa-user-edit"></i> {{ __('Modificar Datos de Cliente') }}</span>
           </div>
           <div class="card-body">
             <form action="{{ route('clients.update', $client->id) }}" method="POST">
@@ -53,8 +53,8 @@
 
               <div class="row">
                 <div class="col-md-10 text-end">
-                  <a href="{{ route('clients.index') }}" class="btn btn-secondary me-1">{{ __('Cancelar') }}</a>
-                  <button type="submit" class="btn btn-primary">{{ __('Guardar')}}</button>
+                  <a href="{{ route('clients.index') }}" class="btn btn-secondary me-1"><i class="fas fa-arrow-circle-left"></i> {{ __('Cancelar') }}</a>
+                  <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> {{ __('Guardar')}}</button>
                 </div>
               </div>
             </form>

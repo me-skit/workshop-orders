@@ -3,22 +3,22 @@
 @section('content')
   <div class="container">
     <div class="row justify-content-center mb-3">
-      <div class="col-md-10 d-flex justify-content-between align-items-baseline">
-        <h2>Clientes</h2>
+      <div class="col-md-12 col-lg-10 col-xl-8 d-flex justify-content-between align-items-baseline">
+        <h2><i class="far fa-user-friends"></i> Clientes</h2>
         <div>
-          <a href="{{ route('clients.create') }}" class="btn btn-outline-success"><i class="fas fa-plus"></i> Nuevo</a>
+          <a href="{{ route('clients.create') }}" class="btn btn-success"><i class="far fa-plus"></i><span class="d-none d-md-inline"> Nuevo</span></a>
         </div>
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-md-10 table-responsive">
+      <div class="col-md-12 col-lg-10 col-xl-8 table-responsive">
         <table class="table table-hover table-sm">
           <thead>
               <tr>
                   <th class="text-center">#</th>
-                  <th>Nombre</th>
-                  <th>Teléfono(s)</th>
-                  <th>Acciones</th>
+                  <th class="point-175">Nombre</th>
+                  <th class="point-85">Teléfono(s)</th>
+                  <th class="text-center">Acciones</th>
               </tr>
           </thead>
           <tbody>
@@ -27,8 +27,8 @@
                 <td class="align-middle text-center">{{ ($clients->currentPage() - 1) * 10 + $key + 1 }}</td>
                 <td class="align-middle">{{ $client->name }}</td>
                 <td class="align-middle">{{ $client->phone_number }}</td>
-                <td>
-                    <a href="{{ route('clients.edit', $client->id ) }}" class="btn btn-outline-primary btn-sm">Modificar</a>
+                <td class="text-center">
+                    <a href="{{ route('clients.edit', $client->id ) }}" class="btn btn-primary btn-sm"><i class="far fa-pencil-alt"></i> <span class="d-none d-md-inline">Modificar</span></a>
                 </td>
               </tr>
             @endforeach
@@ -36,11 +36,11 @@
         </table>
       </div>
     </div>
-  </div>
 
-  <div class="row justify-content-center">
-    <div class="col-md-10 offset-md-1">
-      {{ $clients->links("pagination::bootstrap-4") }}
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-10 col-xl-8">
+        {{ $clients->links("pagination::bootstrap-4") }}
+      </div>
     </div>
   </div>
 @endsection

@@ -6,7 +6,7 @@
       <div class="col-md-10 col-lg-8">
         <div class="card">
           <div class="card-header">
-            <span class="fw-bold"><i class="fas fa-map-marked"></i>{{ $action ? 'Actualizar Item y Precio' : 'Modificar Artículo o Servicio' }} </span>
+            <span class="fw-bold"><i class="fas fa-tools"></i>{{ $action ? ' Actualizar Item y Precio' : ' Modificar Artículo o Servicio' }}</span>
           </div>
           <div class="card-body">
             <form action="{{ route('items.update', $item->id) . ($action ? "?action=$action" : '') }}" method="POST">
@@ -72,8 +72,8 @@
 
               <div class="row">
                 <div class="col-md-10 text-end">
-                  <a href="{{ route('items.index') }}" class="btn btn-secondary me-1">{{  __('Cancelar') }}</a>
-                  <button type="submit" class="btn btn-primary">{{ $action ? 'Actualizar' : 'Guardar' }}</button>
+                  <a href="{{ route('items.index') }}" class="btn btn-secondary me-1"><i class="fas fa-arrow-circle-left"></i> {{  __('Cancelar') }}</a>
+                  <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> {{ $action ? 'Actualizar' : 'Guardar' }}</button>
                 </div>
               </div>
             </form>
