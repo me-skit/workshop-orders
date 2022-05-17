@@ -22,9 +22,9 @@ class UserSeeder extends Seeder
         $user->save();
 
         $user = new User();
-        $user->name = "Fredy";
+        $user->name = "Oswald";
         $user->email = "serviautogt@gmail.com";
-        $user->password = Hash::make("hWTNke3ZGqZt78s");
+        $user->password = Hash::make("Admin*123");
         $user->save();        
     }
 }
