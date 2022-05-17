@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         Client::factory(25)->create();
         
         $this->call(UserSeeder::class);
+
+        $this->call(ItemSeeder::class);
     }
 }
