@@ -2,45 +2,45 @@
 
 > This is a project built with PHP with the intention of saving and keeping track of work orders.
 
-![orders](./orders.png)
+![orders](./assets/orders.png)
 
 The project is based on three main entities: items, customers, orders, and, in addition, history of the prices and users.
 
-![screenshot](./er-diagram.png)
+![screenshot](./assets/er-diagram.png)
 
 ## Main Functions
 
 ### Login
 
-![screenshot](./login.png)
+![screenshot](./assets/login.png)
 
 ### Items
 
 Items list
 
-![screenshot](./items.png)
+![screenshot](./assets/items.png)
 
 Add item
 
-![screenshot](./item-add.png)
+![screenshot](./assets/item-add.png)
 
 ### Orders
 
 Order list
 
-![screenshot](./orders.png)
+![screenshot](./assets/orders.png)
 
 New order
 
-![screenshot](./order-new.png)
+![screenshot](./assets/order-new.png)
 
 Order details
 
-![screenshot](./order-details.png)
+![screenshot](./assets/order-details.png)
 
 Order edit
 
-![screenshot](./order-edit.png)
+![screenshot](./assets/order-edit.png)
 
 ## Built With
 
